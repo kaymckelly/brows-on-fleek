@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Location</title>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/simplex/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Additional CSS stylesheet for super-fancy styling -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+    <!-- Script for Google Maps API -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=///APIKEY///=places"></script>
+
+    <!-- External JS file -->
+    <!-- change to correct one once combined -->
+    <script src="combine.js"></script>
+  </head>
+  <body class="container-fluid">
+    <div class="page-header">
+      <h1>Location</h1>
+    </div>
+    <div class="row">
+      <h3 class="page-txt-title">So where do you want to get your brows done?</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="input-group">
+          <input type="text" class="form-control input-lg" id="location-address" placeholder="City or ZIP">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary btn-lg" type="button">Go!</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="spacer">
+    </div>
+    <div class="row">
+      <h3 class="page-txt-title">How far are you willing to travel?</h3>
+    </div>
+    <!-- don't forget to hide this div using hide1 id. and this should hide all the buttons, while the title stays visible. use css to make fade-in effect upon clicking the "go" button from the previous section? -->
+    <div class="row" id="hide1">
+      <div class="col-md-12 text-center">
+        <div class="btn-group btn-group-lg btn-group-justified" role="group">
+          <!-- each button will send parameters to google places API, to curtail the search -->
+          <button type="button" name="0-1mi" class="btn-default btn-lg left-button">0 - 1 miles</button>
+          <button type="button" name="2-3mi" class="btn-default btn-lg right-button">2 - 3 miles</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="btn-group btn-group-lg btn-group-justified" role="group">
+          <!-- each button will send parameters to google places API, to constrain the search area appropriately -->
+          <button type="button" name="4-5mi" class="btn-default btn-lg bottom-left-button">4 - 5 miles</button>
+          <button type="button" name="5-plus-mi" class="btn-default btn-lg bottom-right-button">more than 5 miles</button>
+        </div>
+      </div>
+    </div>
+    <div class="spacer">
+    </div>
+    <div class="row">
+      <h3 class="page-txt-title">Map Results</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="map">
+          <!-- map should magically appear here -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

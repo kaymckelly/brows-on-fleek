@@ -1,0 +1,67 @@
+body {
+  background-color: #949D80;
+}
+
+h1 {
+  text-align: center;
+  color: #0B486B;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 60px;
+}
+
+h3 {
+  text-align: center;
+  color: #0B486B;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+}
+
+.small-title {
+  color: #3B8686;
+}
+
+button {
+  background-color: #0B486B;
+}
+
+.frida, .doge, .page-txt-title {
+  margin-bottom: 20px;
+}
+
+p, .labels {
+  text-align: center;
+  color: #0B486B;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+}
+
+.left-button {
+  margin-top: 20px;
+  margin-right: 100px;
+  margin-bottom: 40px;
+}
+
+.right-button {
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-bottom: 40px;
+}
+
+.bottom-left-button {
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.bottom-right-button {
+  margin-left: 130px;
+}
+
+#map {
+  height: 500px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.spacer {
+  height: 100px;
+}
