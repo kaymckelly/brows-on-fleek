@@ -19,10 +19,9 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 
     <!-- Script for Google Maps API -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=///APIKEY///=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmK-vNsc3heHW7s6v8U1jcw_AYBe2jz1o&libraries=places"></script>
 
     <!-- External JS file -->
-    <!-- change to correct one once combined -->
     <script src="combine.js"></script>
   </head>
   <body class="container-fluid">
@@ -35,9 +34,9 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="input-group">
-          <input type="text" class="form-control input-lg" id="location-address" placeholder="City or ZIP">
+          <input type="text" class="form-control input-lg" id="userLocation" placeholder="City or ZIP">
           <span class="input-group-btn">
-            <button class="btn btn-secondary btn-lg" type="button">Go!</button>
+            <button class="btn btn-secondary btn-lg" id="goToHere" type="button">Go!</button>
           </span>
         </div>
       </div>
