@@ -21,8 +21,8 @@
     <!-- Script for Google Maps API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmK-vNsc3heHW7s6v8U1jcw_AYBe2jz1o&libraries=places"></script>
 
-    <!-- External JS file -->
-    <script src="combine.js"></script>
+    <!-- Script for Google Place details -->
+    <script src="https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=AIzaSyDmK-vNsc3heHW7s6v8U1jcw_AYBe2jz1o"></script>
   </head>
   <body class="container-fluid">
     <div class="page-header">
@@ -34,7 +34,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="input-group">
-          <input type="text" class="form-control input-lg" id="userLocation" placeholder="City or ZIP">
+          <input type="text" class="form-control input-lg" id="userLocation" placeholder="Street address, City">
           <span class="input-group-btn">
             <button class="btn btn-secondary btn-lg" id="goToHere" type="button">Go!</button>
           </span>
@@ -51,8 +51,8 @@
       <div class="col-md-12 text-center">
         <div class="btn-group btn-group-lg btn-group-justified" role="group">
           <!-- each button will send parameters to google places API, to curtail the search -->
-          <button type="button" name="0-1mi" class="btn-default btn-lg left-button">0 - 1 miles</button>
-          <button type="button" name="2-3mi" class="btn-default btn-lg right-button">2 - 3 miles</button>
+          <button type="button" value='1609' name="0-1mi" class="btn-default btn-lg left-button distance">0 - 1 miles</button>
+          <button type="button" value='4828' name="2-3mi" class="btn-default btn-lg right-button distance">2 - 3 miles</button>
         </div>
       </div>
     </div>
@@ -60,8 +60,8 @@
       <div class="col-md-12 text-center">
         <div class="btn-group btn-group-lg btn-group-justified" role="group">
           <!-- each button will send parameters to google places API, to constrain the search area appropriately -->
-          <button type="button" name="4-5mi" class="btn-default btn-lg bottom-left-button">4 - 5 miles</button>
-          <button type="button" name="5-plus-mi" class="btn-default btn-lg bottom-right-button">more than 5 miles</button>
+          <button type="button" value='8047' name="4-5mi" class="btn-default btn-lg bottom-left-button distance">4 - 5 miles</button>
+          <button type="button" value='32187' name="5-plus-mi" class="btn-default btn-lg bottom-right-button distance">more than 5 miles</button>
         </div>
       </div>
     </div>
@@ -71,11 +71,13 @@
       <h3 class="page-txt-title">Map Results</h3>
     </div>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-10 col-md-offset-1">
         <div id="map">
-          <!-- map should magically appear here -->
         </div>
       </div>
     </div>
+    <div class="bottom-spacer">
+    </div>
   </body>
+  <script src="combine.js"></script>
 </html>

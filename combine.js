@@ -1,38 +1,57 @@
 "use strict";
 
-// creating blank variables to later hold geocoder and map
+// creating variables (blank plus the default radius value)
 var map;
 var geocoder;
+var locations;
+var placeDetails;
+var radius = '1609';
 
+// drawing the initial map with the starting point of the Space Needle
+function drawInitialMap() {
+  locations = new google.maps.LatLng(47.6205099,-122.3514714);
+  drawMap();
+}
+
+// adding event listeners to radius buttons
+var buttons = document.querySelectorAll('button.distance');
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', function(e) {
+    radius = e.target.value;
+    drawMap();
+  })
+}
+
+// create geocoder object and set default map options
 function drawMap() {
-  // create geocoder object, set default location (Space Needle), set default map options
   geocoder = new google.maps.Geocoder();
-  var location = new google.maps.LatLng(47.6205099,-122.3514714);
   map = new google.maps.Map(document.getElementById('map'), {
-    center: location,
-    zoom: 13
+    center: locations,
+    scrollwheel: false,
+    zoom: 14
   });
 
-  // adds marker at location
+  // adds marker at default location
   var marker = new google.maps.Marker({
-    position: location,
+    position: locations,
     map: map
   });
 
-  // adds Google Places library to map(?)
+  // adds Google Places library to map, also info windows
   var service = new google.maps.places.PlacesService(map);
+  placeDetails = new google.maps.InfoWindow(map);
 
-// this is the search request made to the Google Maps API specifying the location, the radius to search within, and the desired keyword
+  // this is the search request made to the Google Maps API specifying the location, the radius to search within, and the desired keyword(s)
   var searchRequest = {
-    location: location,
-    radius: '1609',
-    keyword: 'eyebrows'
+    location: locations,
+    radius: radius,
+    keyword: 'eyebrows || spa || brows'
   };
 
-  // roughly translates to $.ajax(options, callback) except in the Google Maps API/Google Places library
+  // roughly translates to $.ajax(options, callback) except written in the style required by Google Maps API/Google Places library
   service.nearbySearch(searchRequest, function(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      // assuming the status of Google Maps Places services is ok, a for loop will run through the returned results and place a marker at each
+      // assuming the status of Google Maps Places services is ok, a for loop  runs through the returned results and places a marker at each
       for (var i = 0; i < results.length; i++) {
         var place = results[i];
 
@@ -46,9 +65,9 @@ function drawMap() {
 }
 
 // loads map once page loads
-google.maps.event.addDomListener(window, 'load', drawMap);
+google.maps.event.addDomListener(window, 'load', drawInitialMap);
 
-// uses function codeAddress to get text from input and set that as the new center of the map and places a marker at that address
+// uses function codeAddress to get text from user input, set that as the new center of the map, and place a marker at that address
 function codeAddress(address) {
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -57,6 +76,8 @@ function codeAddress(address) {
         map: map,
         position: results[0].geometry.location
       });
+      locations = results[0].geometry.location;
+      drawMap();
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }

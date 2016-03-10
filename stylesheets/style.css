@@ -65,3 +65,7 @@ p, .labels {
 .spacer {
   height: 100px;
 }
+
+.bottom-spacer {
+  height: 50px;
+}
