@@ -4,7 +4,6 @@
 var map;
 var geocoder;
 var locations;
-var placeDetails;
 var radius = '1609';
 
 // drawing the initial map with the starting point of the Space Needle
@@ -39,7 +38,6 @@ function drawMap() {
 
   // adds Google Places library to map, also info windows
   var service = new google.maps.places.PlacesService(map);
-  placeDetails = new google.maps.InfoWindow(map);
 
   // this is the search request made to the Google Maps API specifying the location, the radius to search within, and the desired keyword(s)
   var searchRequest = {
@@ -49,17 +47,24 @@ function drawMap() {
   };
 
   // roughly translates to $.ajax(options, callback) except written in the style required by Google Maps API/Google Places library
-  service.nearbySearch(searchRequest, function(results, status) {
+  service.nearbySearch(searchRequest, function(places, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      // assuming the status of Google Maps Places services is ok, a for loop  runs through the returned results and places a marker at each
-      for (var i = 0; i < results.length; i++) {
-        var place = results[i];
-
+      // assuming the status of Google Maps Places services is ok, a forEach() callback function is run through the returned places and a marker...
+      places.forEach(function(place) {
         var marker = new google.maps.Marker({
           position: place.geometry.location,
           map: map
         });
-      }
+        var content = place.name + '<br/>' + 'Open now? ' + place.opening_hours.open_now + '<br/>' + 'Address: ' + place.vicinity + '<br/>' + 'Rating: ' + place.rating;
+
+        var infoWindow = new google.maps.InfoWindow({
+          content: content
+        });
+
+        marker.addListener('click', function() {
+          infoWindow.open(map, marker);
+        });
+      });
     }
   });
 }
@@ -76,6 +81,8 @@ function codeAddress(address) {
         map: map,
         position: results[0].geometry.location
       });
+
+
       locations = results[0].geometry.location;
       drawMap();
     } else {
