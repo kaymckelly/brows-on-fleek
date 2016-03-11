@@ -27,7 +27,7 @@
   <body class="container-fluid">
     <header>
       <div class="page-header">
-        <h1>Get My Brows on Fleek!</h1>
+        <h1>Where Am I Going?</h1>
       </div>
     </header>
     <section>
@@ -37,7 +37,7 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="input-group">
-            <input type="text" class="form-control input-lg" id="userLocation" placeholder="Street address, City">
+            <input type="text" class="form-control input-lg" id="userLocation" placeholder="Address, City, State, and/or ZIP">
             <span class="input-group-btn">
               <button class="btn btn-secondary btn-lg" id="goToHere" type="button">Go!</button>
             </span>
@@ -47,15 +47,13 @@
     </section>
     <div class="spacer">
     </div>
-    <section>
+    <section class="hideIt1">
       <div class="row">
-        <h3 class="page-txt-title">How far are you willing to travel?</h3>
+        <h3 class="page-txt-title">Next, choose how far you are willing to travel.</h3>
       </div>
-      <!-- don't forget to hide this div using hide1 id. and this should hide all the buttons, while the title stays visible. use css to make fade-in effect upon clicking the "go" button from the previous section? -->
-      <div class="row" id="hide1">
+      <div class="row">
         <div class="col-md-12 text-center">
           <div class="btn-group btn-group-lg btn-group-justified" role="group">
-            <!-- each button will send parameters to google places API, to curtail the search -->
             <button type="button" value='1609' name="0-1mi" class="btn-default btn-lg left-button distance">0 - 1 miles</button>
             <button type="button" value='4828' name="2-3mi" class="btn-default btn-lg right-button distance">2 - 3 miles</button>
           </div>
@@ -64,7 +62,6 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <div class="btn-group btn-group-lg btn-group-justified" role="group">
-            <!-- each button will send parameters to google places API, to constrain the search area appropriately -->
             <button type="button" value='8047' name="4-5mi" class="btn-default btn-lg bottom-left-button distance">4 - 5 miles</button>
             <button type="button" value='32187' name="5-plus-mi" class="btn-default btn-lg bottom-right-button distance">more than 5 miles</button>
           </div>
@@ -73,7 +70,7 @@
     </section>
     <div class="spacer">
     </div>
-    <section>
+    <section class="hideIt2">
       <div class="row">
         <h3 class="page-txt-title">Where can I get my brows done near me?</h3>
       </div>
@@ -86,6 +83,13 @@
     </section>
     <div class="bottom-spacer">
     </div>
-  </body>
+    <footer id="pageFooter">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <small>Brows on Fleek &#3232;__&#3232;</small>
+        </div>
+      </div>
+    </footer>
   <script src="combine.js"></script>
+  </body>
 </html>

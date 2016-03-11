@@ -32,14 +32,22 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <div class="btn-group btn-group-lg btn-group-justified" role="group">
+          <!-- technically these buttons don't pass the html validation because they're wrapped in anchor tags. I did some reading and found that forms are the 'preferred' way to duplicate this functionality. however, I'd argue that 'preferred' is not always synonymous with 'logical', so I left them as is -->
           <a href="success.html">
-            <button type="button" name="yes" class="btn-default btn-lg">My brows are already on fleek!</button>
+            <button type="button" name="yes" class="btn-default btn-lg bottom-buttons">My brows are already on fleek!</button>
           </a>
           <a href="location.html">
-            <button type="button" name="no" class="btn-default btn-lg">I need to get my brows on fleek!</button>
+            <button type="button" name="no" class="btn-default btn-lg bottom-buttons">I need to get my brows on fleek!</button>
           </a>
         </div>
       </div>
     </div>
+    <footer id="pageFooter">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <small>Brows on Fleek &#3232;__&#3232;</small>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

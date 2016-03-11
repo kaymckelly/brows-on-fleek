@@ -9,6 +9,10 @@ h1 {
   font-size: 60px;
 }
 
+.bottom-buttons {
+  margin-bottom: 20px;
+}
+
 h3 {
   text-align: center;
   color: #0B486B;
@@ -28,11 +32,24 @@ button {
   margin-bottom: 20px;
 }
 
+#pageFooter {
+  background-color: rgba(205, 173, 44, 0.4);
+  color: #0B486B;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
 p, .labels {
   text-align: center;
   color: #0B486B;
   font-family: "Courier New", Courier, monospace;
   font-size: 16px;
+}
+
+.notTiny {
+  font-size: 22px;
+  margin-bottom: 20px;
 }
 
 .left-button {
@@ -68,4 +85,8 @@ p, .labels {
 
 .bottom-spacer {
   height: 50px;
+}
+
+.hideIt1, .hideIt2 {
+  visibility: hidden;
 }
